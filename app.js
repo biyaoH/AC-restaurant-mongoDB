@@ -19,7 +19,35 @@ db.once('open', () => {
 const Restaurant = require('./models/restaurant')
 
 app.get('/', (req, res) => {
-  res.send('Restaurant MongoDB')
+  res.send('home page')
+})
+
+app.get('/restaurants', (req, res) => {
+  res.send('show all Restaurant')
+})
+
+app.get('/restaurants/new', (req, res) => {
+  res.send('create new Restaurant')
+})
+
+app.get('/restaurants/:id', (req, res) => {
+  res.send('show Restaurant detail')
+})
+
+app.post('/restaurants', (req, res) => {
+  res.send('create Restaurant')
+})
+
+app.get('/restaurants/:id/edit', (req, res) => {
+  res.send('edit Restaurant page')
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  res.send('edit Restaurant')
+})
+
+app.post('/restaurants/:id/delete', (req, res) => {
+  res.send('delete Restaurant')
 })
 
 app.listen(port, () => {
