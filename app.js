@@ -3,7 +3,10 @@ const app = express()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 
+
 const port = 3000
+
+app.use(express.static('public'))
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -25,11 +28,17 @@ db.once('open', () => {
 const Restaurant = require('./models/restaurant')
 
 app.get('/', (req, res) => {
-  return res.render('index')
+  Restaurant.find()
+    .lean()
+    .exec((err, restaurants) => {
+      if (err) return console.error(err)
+      return res.render('index', { restaurants: restaurants })
+    })
+
 })
 
 app.get('/restaurants', (req, res) => {
-  res.send('show all Restaurant')
+  return res.redirect('/')
 })
 
 app.get('/restaurants/new', (req, res) => {
