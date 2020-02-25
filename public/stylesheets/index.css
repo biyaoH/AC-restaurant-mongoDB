@@ -1,3 +1,12 @@
+body{
+  font-family: 'Noto Sans TC', !important;
+}
+
+h1, h2{
+  font-family: 'Noto Sans TC', !important;
+  font-weight: 700;
+}
+
 header {
   overflow: hidden;
 }
@@ -35,6 +44,20 @@ header {
   color: #9b4b4b;
 }
 
+#containerCreate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;
@@ -48,6 +71,11 @@ header {
 .form-control:focus {
   box-shadow: none;
   border-color: #ced4da;
+}
+
+input,button {
+  width: 300px;
+  margin-top: 5px;
 }
 
 .card {

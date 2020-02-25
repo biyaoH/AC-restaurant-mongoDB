@@ -2,11 +2,14 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 
 const port = 3000
 
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -42,7 +45,7 @@ app.get('/restaurants', (req, res) => {
 })
 
 app.get('/restaurants/new', (req, res) => {
-  res.send('create new Restaurant')
+  return res.render('new')
 })
 
 app.get('/restaurants/:id', (req, res) => {
@@ -50,7 +53,22 @@ app.get('/restaurants/:id', (req, res) => {
 })
 
 app.post('/restaurants', (req, res) => {
-  res.send('create Restaurant')
+  const restaurant = new Restaurant({
+    name: req.body.name,
+    name_en: req.body.name_en,
+    category: req.body.category,
+    image: req.body.image,
+    location: req.body.location,
+    phone: req.body.phone,
+    google_map: req.body.google_map,
+    rating: req.body.rating,
+    description: req.body.description,
+  })
+
+  restaurant.save(err => {
+    if (err) return console.error(err)
+    return res.redirect('/')
+  })
 })
 
 app.get('/restaurants/:id/edit', (req, res) => {
