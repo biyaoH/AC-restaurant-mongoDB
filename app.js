@@ -49,7 +49,13 @@ app.get('/restaurants/new', (req, res) => {
 })
 
 app.get('/restaurants/:id', (req, res) => {
-  res.send('show Restaurant detail')
+  console.log(req.params.id)
+  Restaurant.findById(req.params.id)
+    .lean()
+    .exec((err, restaurant) => {
+      if (err) return console.error(err)
+      return res.render('detail', { restaurant: restaurant })
+    })
 })
 
 app.post('/restaurants', (req, res) => {
