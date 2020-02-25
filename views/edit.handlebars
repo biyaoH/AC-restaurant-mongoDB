@@ -1,0 +1,42 @@
+<div id="containerCreate">
+  <h2>新增餐廳資料</h2>
+  <form action="/restaurants/{{{restaurant._id}}}/edit" method="POST">
+    <div>
+      <label for="name">餐廳名字 ： </label>
+      <input type="text" id="name" name="name" value="{{{restaurant.name}}}">
+    </div>
+    <div>
+      <label for="name_en">餐廳英文 ： </label>
+      <input type="text" id="name_en" name="name_en" value="{{{restaurant.name_en}}}">
+    </div>
+    <div>
+      <label for="category">分　類 ： </label>
+      <input type="text" id="category" name="category" value="{{{restaurant.category}}}">
+    </div>
+    <div>
+      <label for="image">圖片位址 ： </label>
+      <input type="text" id="image" name="image" value="{{{restaurant.image}}}">
+    </div>
+    <div>
+      <label for="location">餐廳地址 ： </label>
+      <input type="text" id="location" name="location" value="{{{restaurant.location}}}">
+    </div>
+    <div>
+      <label for="phone">餐廳電話 ： </label>
+      <input type="text" id="phone" name="phone" value="{{{restaurant.phone}}}">
+    </div>
+    <div>
+      <label for="google_map">google map ： </label>
+      <input type="text" id="google_map" name="google_map" value="{{{restaurant.google_map}}}">
+    </div>
+    <div>
+      <label for="rating">餐廳評分 ： </label>
+      <input type="text" id="rating" name="rating" value="{{{restaurant.rating}}}">
+    </div>
+    <div>
+      <label for="description">餐廳介紹 ： </label>
+      <input type="text" id="description" name="description" value="{{{restaurant.description}}}">
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>
