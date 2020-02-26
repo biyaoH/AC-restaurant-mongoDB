@@ -44,7 +44,10 @@
         <div class="mb-4 text-center">
           <a href="/restaurants/{{{this._id}}}/edit">Edit</a>
           <a href="/restaurants/{{{this._id}}}">Detail</a>
-          <button type="submit">Delete</button>
+          <form action="/restaurants/{{{this._id}}}/delete" method="POST" style="display: inline;">
+            <button type="submit">Delete</button>
+          </form>
+
         </div>
         {{/each}}
 
