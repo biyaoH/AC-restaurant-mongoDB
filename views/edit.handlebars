@@ -1,6 +1,6 @@
 <div id="containerCreate">
   <h2>新增餐廳資料</h2>
-  <form action="/restaurants/{{{restaurant._id}}}?_method=PUT" method="POST">
+  <form id="edit-form" action="/restaurants/{{{restaurant._id}}}?_method=PUT" method="POST">
     <div>
       <label for="name">餐廳名字 ： </label>
       <input type="text" id="name" name="name" value="{{{restaurant.name}}}">
