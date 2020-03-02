@@ -16,9 +16,12 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.use(methodOverride('_method'))
+
+app.use('/', require('./routes/home.js'))
 //當路徑是/restaurants的時間執行後面的callback函數
 app.use('/restaurants', require('./routes/restaurant.js'))
-app.use('/', require('./routes/home.js'))
+app.use('/user', require('./routes/user.js'))
+
 
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
 
