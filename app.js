@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const session = require('express-session')
 
 
 const port = 3000
@@ -37,8 +38,11 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-const Restaurant = require('./models/restaurant')
-
+app.use(session({
+  secret: 'restaurant key',
+  resave: false,
+  saveUninitialized: true,
+}))
 
 
 app.listen(port, () => {
