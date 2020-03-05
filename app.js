@@ -42,7 +42,7 @@ app.use('/', require('./routes/home.js'))
 app.use('/restaurants', require('./routes/restaurant.js'))
 app.use('/users', require('./routes/user.js'))
 
-mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 const db = mongoose.connection
 

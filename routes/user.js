@@ -14,7 +14,7 @@ router.post('/login', (req, res, next) => {
   // res.send('login')
   passport.authenticate('local', {  // 使用 passport 認證
     successRedirect: '/',   // 登入成功會回到根目錄
-    failureRedirect: 'users/login'  // 失敗會留在登入頁面
+    failureRedirect: '/users/login'  // 失敗會留在登入頁面
   })(req, res, next)
 })
 
@@ -47,6 +47,7 @@ router.post('/register', (req, res) => {
         email,
         password
       })
+      console.log(newUser)
       newUser
         .save()
         .then(user => {
