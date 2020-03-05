@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../models/restaurant')
 
-router.get('/', (req, res) => {
+const { authenticated } = require('../config/auth')
+
+router.get('/', authenticated, (req, res) => {
   // console.log(req.query.value)
   const dropdown = req.query.value
 
