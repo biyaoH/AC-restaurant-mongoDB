@@ -1,5 +1,9 @@
 const express = require('express')
 const app = express()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -41,6 +45,7 @@ app.use('/', require('./routes/home.js'))
 //當路徑是/restaurants的時間執行後面的callback函數
 app.use('/restaurants', require('./routes/restaurant.js'))
 app.use('/users', require('./routes/user.js'))
+app.use('/auth', require('./routes/auths'))
 
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
