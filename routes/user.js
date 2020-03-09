@@ -30,13 +30,16 @@ router.post('/register', (req, res) => {
   // const email = req.body.email
   // const password = req.body.password
   // const password2 = req.body.password2
-  const { name, email, password, password2 } = req.body
+  const { email, password, password2 } = req.body
+  const name = (req.body.name.length === 0) ? 'new' : req.body.name
+  console.log('name is :', name)
+
 
   let errors = []
 
-  if (!name || !email || !password || !password2) {
-    errors.push({ message: '所有欄位都是必填' })
-    console.log('所有欄位都是必填')
+  if (!email || !password || !password2) {
+    errors.push({ message: '請填寫必填欄位' })
+    console.log('請填寫必填欄位')
   }
   if (password !== password2) {
     errors.push({ message: '密碼輸入錯誤' })
