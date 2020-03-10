@@ -15,9 +15,19 @@
     ```
 
 # Features
-網站首頁為餐廳總覽，點擊後進入該餐廳詳細介紹頁面，支援搜尋功能
-每一筆餐廳資料皆可修改或刪除，也能新增餐廳。
-以MongoDB作為此網站的資料庫工具
+會員功能
+- 註冊
+- 登入
+- 登出
+- 會員可新增、修改、刪除自己的餐廳資料
+- 會員密碼雜湊處理
+- Facebook登入
+
+網站功能
+- 餐廳總覽
+- 餐廳詳細介紹頁面
+- 搜尋功能
+- 排序功能
 
 # Prerequisites
 Node.js
@@ -27,3 +37,7 @@ Express.js
 Handlebars.js
 
 MongoDB
+
+passport
+
+bcrypt
